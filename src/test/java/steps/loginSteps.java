@@ -8,8 +8,7 @@ import io.cucumber.java.pt.Quando;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.login.loginPage;
-
-import java.util.concurrent.TimeUnit;
+import java.time.Duration;
 
 @SuppressWarnings("NonAsciiCharacters")
 public class loginSteps {
@@ -18,9 +17,9 @@ public class loginSteps {
     @Before
     public void config() {
         final String BaseUrl = "https://www.saucedemo.com/";
-        System.setProperty("webdriver.gecko.driver", "resources/drivers/geckodriver");
+        System.setProperty("webdriver.chrome.driver", "C:\\chromeDriver\\chromedriver.exe");
         driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.manage().window().maximize();
         driver.get(BaseUrl);
         driver.manage().deleteAllCookies();
